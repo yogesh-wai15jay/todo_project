@@ -1,24 +1,28 @@
+// src/components/Login.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [username, setUsername] = useState("");
+function Login({ setIsLoggedIn, setUsername, setShowDashboard }) {
+  const [usernameInput, setUsernameInput] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // ✅ for redirection
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:3000/auth/login", {
-        username,
+        username: usernameInput,
         password,
       });
 
       const token = response.data.token;
       if (token) {
-        localStorage.setItem("token", token); // Save token
+        localStorage.setItem("token", token);
+        setIsLoggedIn(true);
+        setUsername(usernameInput);
+        setShowDashboard(true); // ✅ auto open dashboard after login
         alert("Login successful!");
-        navigate("/"); // ✅ redirect to landing page
+        navigate("/");
       } else {
         alert("No token received. Please try again.");
       }
@@ -28,14 +32,14 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-6 bg-white rounded-lg shadow-lg w-80">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#4B0020]">
+      <div className="p-6 bg-rose-50 rounded-lg shadow-lg w-80">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         <input
           type="text"
           placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={usernameInput}
+          onChange={(e) => setUsernameInput(e.target.value)}
           className="w-full px-3 py-2 mb-3 border rounded-lg"
         />
         <input
