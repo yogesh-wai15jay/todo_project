@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const LandingPage = ({ isLoggedIn, showDashboard }) => {
   return (
-    <div className="min-h-screen bg-[#4B0020] text-white flex flex-col">
+    <div className="min-h-screen bg-transparent text-white flex flex-col">
       {/* Hero Section */}
       <div className="flex flex-1 items-center justify-center text-center px-6 w-full mt-20">
         <div className="w-full flex flex-col items-center justify-center">
@@ -31,7 +31,7 @@ const LandingPage = ({ isLoggedIn, showDashboard }) => {
                   <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
                     <Link
                       to="/addtodo"
-                      className="p-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg text-center transition transform hover:scale-105"
+                      className="p-6 bg-blue-600/70 hover:bg-blue-700/70 text-white rounded-xl shadow-lg text-center transition transform hover:scale-105"
                     >
                       <h3 className="text-xl font-bold mb-2">
                         ➕ Add a New Todo
@@ -40,7 +40,7 @@ const LandingPage = ({ isLoggedIn, showDashboard }) => {
                     </Link>
                     <Link
                       to="/todolist"
-                      className="p-6 bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg text-center transition transform hover:scale-105"
+                      className="p-6 bg-green-600/70 hover:bg-green-700/70 text-white rounded-xl shadow-lg text-center transition transform hover:scale-105"
                     >
                       <h3 className="text-xl font-bold mb-2">📋 Your Todos</h3>
                       <p>View, edit, and manage all your tasks.</p>
@@ -54,7 +54,7 @@ const LandingPage = ({ isLoggedIn, showDashboard }) => {
       </div>
 
       {/* Footer */}
-      <footer className="w-full text-center py-4 bg-[#3B060A] text-gray-300 text-sm">
+      <footer className="w-full text-center py-4 bg-transparent text-gray-300 text-sm">
         © {new Date().getFullYear()} WaiJay's Todo. All rights reserved.
       </footer>
     </div>

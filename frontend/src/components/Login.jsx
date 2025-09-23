@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 function Login({ setIsLoggedIn, setUsername, setShowDashboard }) {
   const [usernameInput, setUsernameInput] = useState("");
@@ -21,19 +22,19 @@ function Login({ setIsLoggedIn, setUsername, setShowDashboard }) {
         setIsLoggedIn(true);
         setUsername(usernameInput);
         setShowDashboard(true); // ✅ auto open dashboard after login
-        alert("Login successful!");
+        toast("Login successful!");
         navigate("/");
       } else {
-        alert("No token received. Please try again.");
+        toast("No token received. Please try again.");
       }
     } catch (error) {
-      alert(error.response?.data?.message || "Error logging in");
+      toast(error.response?.data?.message || "Error logging in");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#4B0020]">
-      <div className="p-6 bg-rose-50 rounded-lg shadow-lg w-80">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-transparent">
+      <div className="p-6 bg-rose-50/70 rounded-lg shadow-lg w-80">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         <input
           type="text"
@@ -51,7 +52,7 @@ function Login({ setIsLoggedIn, setUsername, setShowDashboard }) {
         />
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          className="w-full bg-blue-600/70 text-white py-2 rounded-lg hover:bg-blue-700 transition"
         >
           Login
         </button>

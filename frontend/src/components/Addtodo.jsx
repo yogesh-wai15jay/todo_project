@@ -1,5 +1,6 @@
 // AddTodo.jsx
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 const AddTodo = ({ onTodoAdded }) => {
   const [title, setTitle] = useState("");
@@ -35,14 +36,14 @@ const AddTodo = ({ onTodoAdded }) => {
       }
 
       if (!res.ok) {
-        alert(data.message || "Failed to add todo");
+        toast("Failed to add todo.");
         return;
       }
 
       if (typeof onTodoAdded === "function") {
         onTodoAdded();
       } else {
-        alert("Todo added successfully!");
+        toast("Todo added successfully!");
       }
       setTitle("");
       setDescription("");
@@ -50,16 +51,16 @@ const AddTodo = ({ onTodoAdded }) => {
       setDueDate("");
     } catch (error) {
       console.error("Error adding todo:", error);
-      alert(error.message || "Error adding todo");
+      toast(error.message || "Error adding todo");
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#4B0020] flex flex-col">
+    <div className="min-h-screen bg-transparent flex flex-col">
 
       {/* Add Todo Form */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="max-w-md w-full mt-6 p-6 bg-rose-50 shadow-lg rounded-2xl">
+        <div className="max-w-md w-full mt-6 p-6 bg-rose-50/70 shadow-lg rounded-2xl">
           <h2 className="text-2xl font-bold mb-4">Add New Todo</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -104,7 +105,7 @@ const AddTodo = ({ onTodoAdded }) => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
+              className="w-full bg-blue-600/70 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
             >
               Add Todo
             </button>

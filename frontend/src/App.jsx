@@ -9,6 +9,9 @@ import Addtodo from "./components/Addtodo";
 import Profile from "./components/Profile";
 import TodoList from "./components/TodoList";
 import Navbar from "./components/Navbar";
+import Toaster from "./components/Sonner";
+
+// Removed RootLayout for minimal Sonner test
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,6 +38,7 @@ function App() {
 
   return (
     <Router>
+      <Toaster />
       {/* ✅ Navbar always visible, reacts to auth state */}
       <Navbar
         isLoggedIn={isLoggedIn}
@@ -44,7 +48,6 @@ function App() {
         setUsername={setUsername}
         setShowDashboard={setShowDashboard}
       />
-
       <div className="mt-16">
         <Routes>
           <Route

@@ -1,0 +1,9 @@
+/* src/index.css or src/App.css */
+body {
+  background-color: #4B0020;
+  background-image: url("/wmremove-transformed.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* ✅ stops zooming when re-rendering */
+  min-height: 100vh;
+}

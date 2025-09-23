@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const priorityColors = {
-  Low: "bg-green-200 text-green-800",
-  Normal: "bg-yellow-200 text-yellow-800",
-  High: "bg-red-200 text-red-800",
+  Low: "bg-green-200/70 text-green-800",
+  Normal: "bg-yellow-200/70 text-yellow-800",
+  High: "bg-red-200/70 text-red-800",
 };
 
 const TodoList = () => {
@@ -130,7 +130,7 @@ const TodoList = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#4B0020] flex flex-col">
+    <div className="min-h-screen bg-transparent flex flex-col">
 
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-8">
@@ -148,7 +148,7 @@ const TodoList = () => {
             />
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700"
+              className="bg-blue-600/70 text-white px-4 rounded-lg hover:bg-blue-700"
             >
               Search
             </button>
@@ -160,7 +160,7 @@ const TodoList = () => {
               <li
                 key={todo._id}
                 className={`p-4 rounded-lg shadow flex items-center justify-between ${
-                  todo.completed ? "bg-green-50" : "bg-rose-50"
+                  todo.completed ? "bg-green-50/70" : "bg-rose-50/70"
                 }`}
               >
                 <div>
@@ -181,7 +181,7 @@ const TodoList = () => {
                   <span
                     className={`px-2 py-1 rounded text-xs font-medium ${
                       priorityColors[todo.priority] ||
-                      "bg-gray-200 text-gray-800"
+                      "bg-gray-200/70 text-gray-800"
                     }`}
                   >
                     Priority: {todo.priority}
@@ -198,15 +198,15 @@ const TodoList = () => {
                   <button
                     className={`px-3 py-1 rounded text-white ${
                       todo.completed
-                        ? "bg-gray-500 hover:bg-gray-600"
-                        : "bg-green-600 hover:bg-green-700"
+                        ? "bg-gray-500/70 hover:bg-gray-600"
+                        : "bg-green-600/70 hover:bg-green-700"
                     }`}
                     onClick={() => handleToggleComplete(todo)}
                   >
                     {todo.completed ? "Undo" : "Mark Complete"}
                   </button>
                   <button
-                    className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    className="px-3 py-1 bg-blue-500/70 text-white rounded hover:bg-blue-600"
                     onClick={() => {
                       setSelectedTodo(todo);
                       fetchComments(todo._id);
@@ -215,7 +215,7 @@ const TodoList = () => {
                     View
                   </button>
                   <button
-                    className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+                    className="px-3 py-1 bg-yellow-500/70 text-white rounded hover:bg-yellow-600"
                     onClick={() => {
                       setEditingTodo(todo);
                       setEditForm({
@@ -231,7 +231,7 @@ const TodoList = () => {
                     Edit
                   </button>
                   <button
-                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                    className="px-3 py-1 bg-red-500/70 text-white rounded hover:bg-red-600"
                     onClick={() => handleDelete(todo._id)}
                   >
                     Delete
@@ -246,7 +246,7 @@ const TodoList = () => {
       {/* ✅ Modal for View (BLUR only, no black background) */}
       {selectedTodo && (
         <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-rose-50 w-full max-w-lg p-6 rounded-xl shadow-xl relative">
+          <div className="bg-rose-50/70 w-full max-w-lg p-6 rounded-xl shadow-xl relative">
             <button
               className="absolute top-2 right-2 text-gray-500 hover:text-black"
               onClick={() => setSelectedTodo(null)}
@@ -258,7 +258,7 @@ const TodoList = () => {
             <span
               className={`px-3 py-1 rounded-full text-sm font-medium ${
                 priorityColors[selectedTodo.priority] ||
-                "bg-gray-200 text-gray-800"
+                "bg-gray-200/70 text-gray-800"
               }`}
             >
               {selectedTodo.priority}
@@ -277,7 +277,7 @@ const TodoList = () => {
                 <li className="text-gray-500">No comments yet.</li>
               )}
               {comments.map((c) => (
-                <li key={c._id} className="p-2 border rounded bg-gray-50">
+                <li key={c._id} className="p-2 border rounded bg-gray-50/70">
                   <p className="text-sm">{c.text}</p>
                   <span className="text-xs text-gray-500">
                     by {c.userId?.username || "Unknown"}
@@ -297,7 +297,7 @@ const TodoList = () => {
               />
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700"
+                className="bg-blue-600/70 text-white px-4 rounded-lg hover:bg-blue-700"
               >
                 Add
               </button>
@@ -309,7 +309,7 @@ const TodoList = () => {
       {/* ✅ Modal for Edit (BLUR only) */}
       {editingTodo && (
         <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-rose-50 w-full max-w-lg p-6 rounded-xl shadow-xl relative">
+          <div className="bg-rose-50/70 w-full max-w-lg p-6 rounded-xl shadow-xl relative">
             <button
               className="absolute top-2 right-2 text-gray-500 hover:text-black"
               onClick={() => setEditingTodo(null)}
@@ -368,14 +368,14 @@ const TodoList = () => {
               <div className="flex gap-2">
                 <button
                   type="submit"
-                  className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
+                  className="w-full bg-green-600/70 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
                 >
                   Save
                 </button>
                 <button
                   type="button"
                   onClick={() => setEditingTodo(null)}
-                  className="w-full bg-gray-400 text-white font-semibold py-2 rounded-lg hover:bg-gray-500 transition"
+                  className="w-full bg-gray-400/80 text-white font-semibold py-2 rounded-lg hover:bg-gray-500 transition"
                 >
                   Cancel
                 </button>
