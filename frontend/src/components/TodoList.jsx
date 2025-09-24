@@ -159,7 +159,7 @@ const TodoList = () => {
             {todos.map((todo) => (
               <li
                 key={todo._id}
-                className={`p-4 rounded-lg shadow flex items-center justify-between ${
+                className={`p-4 rounded-lg shadow flex-col md:flex-row items-center justify-between ${
                   todo.completed ? "bg-green-50/70" : "bg-rose-50/70"
                 }`}
               >
