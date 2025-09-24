@@ -8,7 +8,7 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("https://todo-project-eight-sandy.vercel.app/auth/me", {
+      const res = await fetch("https://todo-project-sage-gamma.vercel.app/auth/me", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

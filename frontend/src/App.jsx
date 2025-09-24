@@ -25,7 +25,7 @@ function App() {
       setIsLoggedIn(true);
 
       // Try fetching user details (username) for profile icon
-      fetch("https://todo-project-eight-sandy.vercel.app/auth/me", {
+      fetch("https://todo-project-sage-gamma.vercel.app/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())

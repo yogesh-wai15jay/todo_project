@@ -19,7 +19,7 @@ const AddTodo = ({ onTodoAdded }) => {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       };
 
-      const res = await fetch("https://todo-project-eight-sandy.vercel.app/todo/create", {
+      const res = await fetch("https://todo-project-sage-gamma.vercel.app/todo/create", {
         method: "POST",
         headers,
         body: JSON.stringify(newTodo),

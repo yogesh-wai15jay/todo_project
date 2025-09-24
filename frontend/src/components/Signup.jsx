@@ -11,7 +11,7 @@ function Signup({ setIsLoggedIn, setUsername, setShowDashboard }) {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post("https://todo-project-eight-sandy.vercel.app/auth/signup", {
+      const response = await axios.post("https://todo-project-sage-gamma.vercel.app/auth/signup", {
         username: usernameInput,
         password,
       });

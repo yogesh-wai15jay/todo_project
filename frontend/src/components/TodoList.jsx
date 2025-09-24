@@ -24,7 +24,7 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const res = await fetch("https://todo-project-eight-sandy.vercel.app/todo/todos", {
+      const res = await fetch("https://todo-project-sage-gamma.vercel.app/todo/todos", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const data = await res.json();
@@ -35,7 +35,7 @@ const TodoList = () => {
   const fetchComments = async (todoId) => {
     try {
       const res = await fetch(
-        `https://todo-project-eight-sandy.vercel.app/comments/todos/${todoId}/comments`,
+        `https://todo-project-sage-gamma.vercel.app/comments/todos/${todoId}/comments`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -49,7 +49,7 @@ const TodoList = () => {
     e.preventDefault();
     try {
       await fetch(
-        `https://todo-project-eight-sandy.vercel.app/comments/todos/${selectedTodo._id}/comments`,
+        `https://todo-project-sage-gamma.vercel.app/comments/todos/${selectedTodo._id}/comments`,
         {
           method: "POST",
           headers: {
@@ -72,7 +72,7 @@ const TodoList = () => {
     }
     try {
       const res = await fetch(
-        `https://todo-project-eight-sandy.vercel.app/todo/todos/search?query=${encodeURIComponent(
+        `https://todo-project-sage-gamma.vercel.app/todo/todos/search?query=${encodeURIComponent(
           searchQuery
         )}`,
         {
@@ -86,7 +86,7 @@ const TodoList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`https://todo-project-eight-sandy.vercel.app/todo/${id}`, {
+      await fetch(`https://todo-project-sage-gamma.vercel.app/todo/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
@@ -96,7 +96,7 @@ const TodoList = () => {
 
   const handleToggleComplete = async (todo) => {
     try {
-      await fetch(`https://todo-project-eight-sandy.vercel.app/todo/${todo._id}`, {
+      await fetch(`https://todo-project-sage-gamma.vercel.app/todo/${todo._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -111,7 +111,7 @@ const TodoList = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`https://todo-project-eight-sandy.vercel.app/todo/${editingTodo._id}`, {
+      await fetch(`https://todo-project-sage-gamma.vercel.app/todo/${editingTodo._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
