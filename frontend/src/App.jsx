@@ -9,7 +9,7 @@ import Addtodo from "./components/Addtodo";
 import Profile from "./components/Profile";
 import TodoList from "./components/TodoList";
 import Navbar from "./components/Navbar";
-import Toaster from "./components/Sonner";
+import Toaster from "./components/Toaster";
 
 // Removed RootLayout for minimal Sonner test
 
