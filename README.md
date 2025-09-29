@@ -88,11 +88,11 @@ Authentication API (Backend)
 This frontend expects a backend running on http://localhost:3000
  with routes:
 
-. POST /auth/signup → Create new user, return JWT token
+- POST /auth/signup → Create new user, return JWT token
 
-. POST /auth/login → Login user, return JWT token
+- POST /auth/login → Login user, return JWT token
 
-. GET /auth/me → Get current user (using JWT token in Authorization header)
+- GET /auth/me → Get current user (using JWT token in Authorization header)
 
 Example Authorization header:
 Authorization: Bearer <your_token_here>
